@@ -1,0 +1,12 @@
+@import '../../../../assets/styles/variables.scss';
+
+.container-rx-crud-grid {
+    padding: 10px;
+
+    .container-crud-actions {
+        button {
+            width: 60px;
+            margin-right: 5px;
+        }
+    }
+}

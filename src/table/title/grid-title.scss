@@ -1,0 +1,14 @@
+@import "../../../assets/styles/variables";
+
+.table-title {
+    border-bottom: 1px solid $mscBordersColor;
+    padding: 10px 20px;
+    margin-right: -20px;
+    margin-left: -20px;
+    height: 45px;
+
+    .title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}

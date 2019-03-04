@@ -1,0 +1,65 @@
+//@import '../../../assets/styles/variables.scss';
+.wrapper-table {
+    font-family: 'Ek Mukta', sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 20px;
+    .table-title {
+        .title {
+            margin-top: 5px;
+        }
+    }
+    .contaner-table {
+        min-height: 240px;
+        .table {
+            table-layout: fixed;
+            border-bottom: 2px solid $mscBordersColor;
+            .table-header>tr div {
+                color: $battleshipGray;
+                padding: 10px 0;
+                text-align: center;
+                .sorting-arrow {
+                    color: #5ab0ee;
+                    font-size: 8px;
+                    margin-left: 5px;
+                }
+                .double-sorting-arrows {
+                    font-size: 14px;
+                    color: #5ab0ee;
+                }
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    cursor: pointer;
+                }
+                .icon-sorting_iocn {
+                    color: #62B0EC;
+                }
+            }
+            tbody {
+                font-size: 13px;
+                td {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+            tbody>tr:first-child td {
+                border-top: 2px solid $mscBordersColor;
+            }
+            .icon-attack_icon {
+                color: #EC635E;
+            }
+            .icon-complete_icon {
+                color: #FBA725;
+            }
+        }
+    }
+    .text-bolded {
+        font-weight: bold;
+    }
+}

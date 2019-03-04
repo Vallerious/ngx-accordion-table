@@ -19,7 +19,12 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "create-react-class": "^15.6.3",
+    "lodash": "^4.17.11",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-paginate": "^6.3.0"
+  },
   "peerDependencies": {
     "react": "16.x"
   },

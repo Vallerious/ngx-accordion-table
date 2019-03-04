@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables";
+.contaner-pagination {
+    padding: 0 20px;
+    padding-bottom: 10px;
+    .pagination,
+    .contaner-pagination-info {
+        float: left;
+        vertical-align: top;
+    }
+    .pagination { 
+        $height: 30px;
+        margin: 0;
+        ul.pagination li {
+            cursor: pointer;
+            &.active {
+                a {
+                    background: #fff;
+                    color: $bluishColor;
+                }
+            }
+            a {
+                border: none;
+                color: $battleshipGray;
+                padding-left: 6px;
+                padding-right: 6px;
+                line-height: 18px;
+            }
+            a:focus {
+                outline: none;
+                background: none;
+                color: $softBlue;
+            }
+        }
+        div.info {
+            float: left;
+            line-height: $height;
+            padding-left: 20px;
+            color: $waikawaGray;
+        }
+    }
+    .contaner-pagination-info {
+        $height: 30px;
+        width: 120px;
+        float: right;
+        .form-control {
+            margin-left: 6px;
+            display: inline-block;
+            width: 75px;
+            height: $height;
+            color: $bluishColor;
+        }
+    }
+}
