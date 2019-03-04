@@ -35,34 +35,30 @@ class HeaderRow extends Component {
     }
 
     render() {
-        let {columnDefs, widthPerCol, columnFilter, onFilterValueChange} = this.props;
-        let {colSortDirs} = this.state;
+        let { columnDefs, widthPerCol, columnFilter, onFilterValueChange } = this.props;
+        let { colSortDirs } = this.state;
 
         return (
-            <thead className="table-header">
-                <tr>
-                    <td colSpan={columnDefs.length}>
-                        {_.map(columnDefs, (headerItem, idx) => {
-                            let calcWidth = headerItem.width || widthPerCol;
-                            let colFilter = <ColFilter fieldName={headerItem.field} onFilterValueChange={onFilterValueChange} />
+            <div style={{display: 'flex'}}>
+                {_.map(columnDefs, (headerItem, idx) => {
+                    let calcWidth = headerItem.width || widthPerCol;
+                    let colFilter = <ColFilter fieldName={headerItem.field} onFilterValueChange={onFilterValueChange} />
 
-                            return headerItem.isSortable ? <SortColumn
-                                onSortChange={this.onSortChange}
-                                sortDir={colSortDirs[headerItem.field]} key={idx}
-                                columnKey={headerItem.field}
-                                style={{ display: 'inline-block', width: calcWidth + '%' }}
-                                title={headerItem.title}>
-                                {headerItem.title && columnFilter ? colFilter : null}
-                            </SortColumn>
-                                :
-                                <div key={idx} style={{ display: 'inline-block', width: calcWidth + '%' }}>
-                                    {headerItem.title}
-                                    {headerItem.title && columnFilter ? colFilter : null}
-                                </div>;
-                        })}
-                    </td>
-                </tr>
-            </thead>
+                    return headerItem.isSortable ? <SortColumn
+                        onSortChange={this.onSortChange}
+                        sortDir={colSortDirs[headerItem.field]} key={idx}
+                        columnKey={headerItem.field}
+                        style={{ display: 'inline-block', width: calcWidth + '%' }}
+                        title={headerItem.title}>
+                        {headerItem.title && columnFilter ? colFilter : null}
+                    </SortColumn>
+                        :
+                        <div key={idx} style={{ flex: 1 }}>
+                            {headerItem.title}
+                            {headerItem.title && columnFilter ? colFilter : null}
+                        </div>;
+                })}
+            </div>
         )
     }
 }

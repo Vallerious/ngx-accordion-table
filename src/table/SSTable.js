@@ -15,7 +15,7 @@ export class SSTable extends Component {
     };
     
     render () {
-        let {tableTitle, columns, data, url, isSelectable, query, emptyTitle} = this.props.config;
+        let {tableTitle, columns, data, url, isSelectable, query, emptyTitle, expandedRowTemplate} = this.props.config;
 
         return (
             <div>
@@ -23,7 +23,7 @@ export class SSTable extends Component {
                     ?
                     <BEGrid {...{tableTitle, isSelectable, columns, data, url, query, emptyTitle, children: this.props.children}} />
                     :
-                    <FEGrid {...{tableTitle, isSelectable, columns, data, emptyTitle, children: this.props.children}}/>}
+                    <FEGrid {...{tableTitle, isSelectable, columns, data, emptyTitle, children: this.props.children, expandedRowTemplate}}/>}
             </div>
         )
     }

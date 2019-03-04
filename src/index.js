@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { SSTable } from "./table/SSTable";
+import createReactClass from 'create-react-class';
 
 export default class App extends Component {
   render() {
@@ -24,9 +25,14 @@ export default class App extends Component {
       isSuspicious: true
     }]
     let isSelectable = true;
+    let expandedRowTemplate = createReactClass({
+      render() {
+        return <div>Proc proc</div>
+      }
+    })
 
     return <div>
-      <SSTable config={{tableTitle, columns, data, isSelectable}}/>
+      <SSTable config={{tableTitle, columns, data, isSelectable, expandedRowTemplate}}/>
     </div>
   }
 }

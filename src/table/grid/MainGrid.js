@@ -68,7 +68,7 @@ class MainGrid extends Component {
     }
  
     render() {
-        let {tableTitle, columns, data, onSortChange, isSelectable, columnFilter, emptyTitle} = this.props;
+        let {tableTitle, columns, data, onSortChange, isSelectable, columnFilter, emptyTitle, expandedRowTemplate} = this.props;
         let {widthPerCol} = this.state;
         const emptyScreenTitle = emptyTitle ? emptyTitle : 'No data in range';
 
@@ -76,7 +76,7 @@ class MainGrid extends Component {
             <div className="wrapper-table" id={this.props.id}>
                 <GridTitle tableTitle={tableTitle}>{this.props.children}</GridTitle>
                 <div className="contaner-table">
-                    <table className="table table-hover">
+                    <div>
                         <HeaderRow columnDefs={columns} widthPerCol={widthPerCol}
                             onSortChange={onSortChange}
                             columnFilter={columnFilter}
@@ -84,9 +84,10 @@ class MainGrid extends Component {
                         <DataRow rowData={data}
                                 widthPerCol={widthPerCol}
                                 columnDefs={columns}
+                                expandedRowTemplate={expandedRowTemplate}
                                 isSelectable={isSelectable}
                                 handleRowChecked={this.handleRowChecked} />
-                    </table>
+                    </div>
                     {_.isEmpty(data) ? <div className="mt90">nishto</div> : null}
                 </div>
             </div>

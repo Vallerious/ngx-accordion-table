@@ -100,14 +100,14 @@ class FEGrid extends Component {
     };
 
     render() {
-        let {tableTitle, columns, children, isSelectable, columnFilter, emptyTitle} = this.props;
+        let {tableTitle, columns, children, isSelectable, columnFilter, emptyTitle, expandedRowTemplate} = this.props;
         let {viewData, currPage, perPage, isPrinting} = this.state;
         let data = viewData;
         if (!isPrinting) data = this.getPaginatedItems(viewData, currPage, perPage);
 
         return (
             <div>
-                <MainGrid {...{ children, tableTitle, columnFilter, isSelectable, columns, emptyTitle, data: data }}
+                <MainGrid {...{ children, tableTitle, columnFilter, isSelectable, columns, emptyTitle, data: data, expandedRowTemplate }}
                     onSortChange={this.onSortChange}
                     onSelect={this.props.onSelect}
                     onFilterValueChange={this.onFilterValueChange} />

@@ -1,7 +1,7 @@
 {
-  "name": "ngx-accordion-table",
+  "name": "r-accordion-table",
   "version": "1.0.0",
-  "description": "ngx-accordion-table React component",
+  "description": "r-accordion-table React component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [

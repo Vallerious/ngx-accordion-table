@@ -27,16 +27,12 @@ class DataRow extends Component {
         this.closeRows();
     }
 
-    handleRowSelect(pageIdx, tmplIdx) {
-        if (pageIdx === this.state.selectedRow) {
-            if (this.state.actionIdx === tmplIdx) {
-                this.setState({ selectedRow: null });
-            }
+    handleRowSelect(rowIdx) {
+        if (rowIdx === this.state.selectedRow) {
+            this.setState({ selectedRow: null });
         } else {
-            this.setState({ selectedRow: pageIdx });
+            this.setState({ selectedRow: rowIdx });
         }
-
-        this.setState({ actionIdx: tmplIdx });
     }
 
     handleActionClick = (cb = () => { }, i, tmpl, actionIdx, rowData) => {
@@ -79,28 +75,26 @@ class DataRow extends Component {
                 } else if (fieldDef.type === "link") {
                     cellContent = <LinkCell data={row} field={fieldDef.field} linkUrl={fieldDef.linkUrl} />
                 } else {
-                    cellContent = <SimpleTextCell data={row} field={fieldDef.field} style={{ width: width + '%' }} fieldDef={fieldDef} row={i} col={idx} />;
+                    cellContent = <SimpleTextCell data={row} field={fieldDef.field} fieldDef={fieldDef} row={i} col={idx} />;
                 }
 
-                return <div className="text-center" style={{ display: 'inline-block', width: width + '%', 'whiteSpace': 'nowrap', overflow: 'hidden', 'textOverflow': 'ellipsis' }} key={idx}>
+                return <div className="text-center" style={{ flex: 1, 'whiteSpace': 'nowrap', overflow: 'hidden', 'textOverflow': 'ellipsis' }} key={idx}>
                     {cellContent}
                 </div>;
             });
 
-            let ExpandTmpl = this.state.currentExpandTemplate;
+            let ExpandTmpl = this.props.expandedRowTemplate;
 
-            return <tr key={i}>
-                <td colSpan={columnDefs.length}>
+            return <div key={i} style={{display: 'flex'}} onClick={this.handleRowSelect.bind(this, i)}>
                     {cells}
-                    <div style={Object.assign({}, { display: selectedRow === i ? 'block' : 'none' })} id="row-expandable">
+                    <div style={Object.assign({}, { flex: selectedRow === i ? '0 0 100%' : '0' })} id="row-expandable">
                         {ExpandTmpl && selectedRow === i ? <ExpandTmpl rowData={row} close={this.closeRows} /> : <div />}
                     </div>
-                </td>
-            </tr>;
+                </div>;
         });
 
         return (
-            <tbody>{rows}</tbody>
+            <div>{rows}</div>
         )
     }
 };

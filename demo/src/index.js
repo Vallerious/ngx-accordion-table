@@ -6,7 +6,7 @@ import Example from '../../src'
 class Demo extends Component {
   render() {
     return <div>
-      <h1>ngx-accordion-table Demo</h1>
+      <h1>r-accordion-table Demo</h1>
       <Example/>
     </div>
   }
